@@ -1,0 +1,106 @@
+﻿@model List<ProductInventory.Models.Product>
+
+<h1>List all Products</h1>
+@* <div style="float:right; width:100px">
+    <a class="btn btn-success" asp-controller="Product" asp-action="Create">Create</a>
+</div> *@
+
+
+@* <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Product Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Category</th>
+            <th scope="col">Image</th>
+        
+            <th scope ="col">View</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+         
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+                <td>@item.Category</td>
+                <td><image src="@item.ImageUrl" class="img-thumbnail"/></td>
+               
+                <td>
+                    <a class="btn btn-primary" asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">View</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        
+       
+    </tbody>
+  
+</table>
+ *@
+
+
+<div class="container mt-5">
+
+    <!-- Create Button -->
+    @* <div class="d-flex justify-content-end mb-4">
+        <a asp-action="Create" asp-controller="Product" class="btn btn-primary">Create Product</a>
+    </div> *@
+    <div class="d-flex justify-content-end mb-4">
+        <a asp-action="Create" asp-controller="Product" class="btn btn-success btn-lg shadow-sm">
+            <i class="bi bi-plus-lg me-2"></i> Create Product
+        </a>
+    </div>
+
+
+    <!-- Product Grid -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <div class="image-container">
+                        <img src="@product.ImageUrl" alt="@product.Name" />
+                    </div>
+                    @* <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="width:300px;height: 200px; object-fit: cover;"> *@
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text text-muted">Price: $@product.Price</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+
+                       @*  <a class="btn btn-sm btn-outline-secondary" asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">View</a>
+
+                        <a class="btn btn-warning" asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+
+                        <a class="btn btn-danger" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id">Delete</a> *@
+
+                        <a class="btn btn-sm btn-view" asp-controller="Product" asp-action="Details" asp-route-id="@product.Id"><i class="bi bi-eye"></i>View</a>
+
+                        <a class="btn btn-sm btn-edit" asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id"><i class="bi bi-pencil"></i>Edit</a>
+
+                        <a class="btn btn-sm btn-delete" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id"><i class="bi bi-trash"></i>Delete</a>
+
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

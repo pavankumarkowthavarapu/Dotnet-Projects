@@ -1,0 +1,97 @@
+﻿@model ProductInventory.Models.Product
+
+
+@* <table class="table">
+    <thead>
+
+        <h4>Products</h4>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Product Id</td>
+            <td>@Model.Id</td>
+
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td>@Model.Name</td>
+        </tr>
+
+        <tr>
+            <td>
+                Price
+            </td>
+            <td>@Model.Price</td>
+        </tr>
+
+
+        <tr>
+            <td>Quantity</td>
+            <td>@Model.Quantity</td>
+        </tr>
+
+
+        <tr>
+            <td>Category</td>
+            <td>@Model.Category</td>
+        </tr>
+
+    
+    
+       
+       
+       
+    </tbody>
+</table>
+
+<td>
+    <a class="btn btn-secondary" asp-controller="Product" asp-action="Index" >Back</a>
+</td> *@
+
+
+
+<div class="container mt-5">
+
+    <h3 class="mb-4">Product Details</h3>
+
+    <!-- Product Image -->
+    <div class="text-center mb-4">
+        <img src="/@Model.ImageUrl"
+             alt="@Model.Name"
+             class="img-fluid border rounded shadow"
+             style="max-height: 300px; object-fit: contain;" />
+    </div>
+
+    <!-- Product Info Table -->
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="row">Product ID</th>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <th scope="row">Name</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th scope="row">Price</th>
+                <td>$@Model.Price</td>
+            </tr>
+            <tr>
+                <th scope="row">Quantity</th>
+                <td>@Model.Quantity</td>
+            </tr>
+            <tr>
+                <th scope="row">Category</th>
+                <td>@Model.Category</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Back Button -->
+    <div class="mt-4">
+        <a class="btn btn-secondary" asp-controller="Product" asp-action="Index"><i class="bi bi-skip-backward-circle"></i> Back</a>
+    </div>
+
+</div>
